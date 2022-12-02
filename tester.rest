@@ -1,0 +1,28 @@
+### create notes
+POST http://localhost:9000/note/create
+Content-Type: application/json
+
+{
+    "title" : "ini adalah title 12",
+    "content" : "ini content dari json body 12",
+    "author" : "fadliselaz"
+}
+
+
+### read notes
+GET http://localhost:9000/note/read
+
+
+### delete note dengan id
+DELETE http://localhost:9000/note/delete/3
+Content-Type: application/json
+
+### update notes
+PUT http://localhost:9000/note/update/5
+Content-Type: application/json
+
+{
+    "title" : "saya mencoba edit data dengan id 5",
+    "content" : "saya akan mengedit data note dengan id 5",
+    "author" : "evalia"
+}

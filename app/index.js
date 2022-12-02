@@ -1,33 +1,14 @@
 // import package yang dibutuhkan
 import express from "express"
-import db from "../prisma/connection"
+import note_routes from "./routes/note_routes"
 
 const app = express()
 
-// route
-app.get("/note/create", async (req, res) => {
-    const { title, content, author } = req.query
-    const createNote = await db.notes.create({
-        data: {
-            title: title,
-            content: content,
-            author: author
-        }
-    })
-    res.status(200).json({
-        success: true,
-        data: createNote
-    })
-})
+// middleware
+app.use(express.json())
 
-// params
-app.get("/note/read", async (req, res) => {
-    const readNotes = await db.notes.findMany()
-    res.status(200).json({
-        success: true,
-        data: readNotes
-    })
-})
+// router
+app.use(note_routes)
 
 
 // listener
